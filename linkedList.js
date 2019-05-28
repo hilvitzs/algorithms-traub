@@ -37,6 +37,16 @@ LinkedList.prototype.removeHead = function() {
   return val;
 }
 
+LinkedList.prototype.removeTail = function() {
+  if (!this.tail) return null;
+
+  var val = this.tail.value;
+  this.tail = this.tail.prev;
+  if (this.tail) this.tail.next = null;
+  else this.head = null;
+  return val;
+}
+
 // var ll = new LinkedList();
 
 // ll.addToHead(100);
@@ -57,11 +67,19 @@ LinkedList.prototype.removeHead = function() {
 
 // console.log(util.inspect(myLL.head, false, null, true /* enable colors */))
 
+// var ll = new LinkedList();
+
+// ll.addToHead(1000);
+// ll.addToHead(2000);
+// ll.addToTail(3000);
+
+// ll.removeHead();
+// console.log(util.inspect(ll.removeHead(), false, null, true))
+
 var ll = new LinkedList();
 
-ll.addToHead(1000);
-ll.addToHead(2000);
-ll.addToTail(3000);
+ll.addToHead('1');
+ll.addToHead('2');
+ll.addToHead('3');
 
-ll.removeHead();
-console.log(util.inspect(ll.removeHead(), false, null, true))
+console.log(util.inspect(ll.removeTail(), false, null, true))
