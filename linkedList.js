@@ -40,7 +40,5 @@ myLL.addToTail(20);
 myLL.addToTail(30);
 
 myLL.addToHead(100);
-// myLL.addToHead();
-// myLL.addToHead();
 
 console.log(util.inspect(myLL.tail.prev.prev.prev, false, null, true /* enable colors */))
