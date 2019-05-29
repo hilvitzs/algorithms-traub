@@ -47,6 +47,16 @@ LinkedList.prototype.removeTail = function() {
   return val;
 }
 
+LinkedList.prototype.search = function(searchValue) {
+  var currentNode = this.head;
+
+  while (currentNode) {
+    if (currentNode.value === searchValue) return currentNode.value;
+    currentNode = currentNode.next
+  }
+  return null;
+}
+
 // var ll = new LinkedList();
 
 // ll.addToHead(100);
@@ -76,10 +86,21 @@ LinkedList.prototype.removeTail = function() {
 // ll.removeHead();
 // console.log(util.inspect(ll.removeHead(), false, null, true))
 
-var ll = new LinkedList();
+// var ll = new LinkedList();
 
-ll.addToHead('1');
-ll.addToHead('2');
-ll.addToHead('3');
+// ll.addToHead('1');
+// ll.addToHead('2');
+// ll.addToHead('3');
 
-console.log(util.inspect(ll.removeTail(), false, null, true))
+// console.log(util.inspect(ll.removeTail(), false, null, true))
+
+var myLL = new LinkedList();
+
+myLL.addToHead(123);
+myLL.addToHead(70);
+myLL.addToHead('hello');
+myLL.addToTail(19);
+myLL.addToTail('world');
+myLL.addToTail(20);
+
+console.log(util.inspect(myLL.search('ten'), false, null, true))
