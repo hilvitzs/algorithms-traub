@@ -81,9 +81,9 @@ bst.insert(10);
 // console.log(bst.contains(10)); // true
 // console.log(bst.contains(15)); // false
 
-// bst.depthFirstTraversal(log, 'in-order'); // 10 20 30 35 45 50 59 60 70 85 100 105 Least to Greatest
-// bst.depthFirstTraversal(log, 'pre-order'); // 50 30 20 10 45 35 70 60 59 100 85 105 Copy the BST
-// bst.depthFirstTraversal(log, 'post-order'); // 10 20 35 45 30 59 60 85 105 100 70 50 Safely delete nodes from a BST because it moves from the bottom and works its way up
+// bst.depthFirstTraversal(log, 'in-order'); // 10 20 30 35 45 50 59 60 70 85 100 105 - Least to Greatest
+// bst.depthFirstTraversal(log, 'pre-order'); // 50 30 20 10 45 35 70 60 59 100 85 105 - Copy the BST
+// bst.depthFirstTraversal(log, 'post-order'); // 10 20 35 45 30 59 60 85 105 100 70 50 - Safely delete nodes from a BST because it moves from the bottom and works its way up
 
 // function log(value) {
 //   console.log(value);
