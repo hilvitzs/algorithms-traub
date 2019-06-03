@@ -47,12 +47,12 @@ LinkedList.prototype.removeTail = function() {
   return val;
 }
 
-LinkedList.prototype.search = function(searchValue) {
+LinkedList.prototype.search = function(value) {
   var currentNode = this.head;
 
   while (currentNode) {
-    if (currentNode.value === searchValue) return currentNode.value;
-    currentNode = currentNode.next
+    if (currentNode.value === value) return currentNode.value;
+    currentNode = currentNode.next;
   }
   return null;
 }
@@ -79,9 +79,8 @@ LinkedList.prototype.indexOf = function(value) {
 // ll.addToHead(200);
 // ll.addToHead(300);
 
-// var myLL = new LinkedList();
-
 // console.log(util.inspect(ll, false, null, true /* enable colors */)); // 300 200 100 Head: 300 Tail: 100
+// var myLL = new LinkedList();
 
 // myLL.addToTail(10);
 // myLL.addToTail(20);
@@ -122,6 +121,7 @@ LinkedList.prototype.indexOf = function(value) {
 // myLL.addToTail(20);
 
 // console.log(util.inspect(myLL.search('ten'), false, null, true)); // null
+// console.log(util.inspect(myLL.search('world'), false, null, true)); // 'world'
 
 var myLL = new LinkedList();
 
