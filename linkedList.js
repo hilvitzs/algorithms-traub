@@ -124,14 +124,14 @@ LinkedList.prototype.indexOf = function(value) {
 // console.log(util.inspect(myLL.search('ten'), false, null, true)); // null
 // console.log(util.inspect(myLL.search('world'), false, null, true)); // 'world'
 
-var myLL = new LinkedList();
+// var myLL = new LinkedList();
 
-myLL.addToTail(1);
-myLL.addToTail(5);
-myLL.addToTail(3);
-myLL.addToTail(5);
-myLL.addToTail(8);
-myLL.addToTail(7);
-myLL.addToTail(5);
+// myLL.addToTail(1);
+// myLL.addToTail(5);
+// myLL.addToTail(3);
+// myLL.addToTail(5);
+// myLL.addToTail(8);
+// myLL.addToTail(7);
+// myLL.addToTail(5);
 
-console.log(util.inspect(myLL.indexOf(5), false, null, true)); // [1, 3, 6]
+// console.log(util.inspect(myLL.indexOf(5), false, null, true)); // [1, 3, 6]
