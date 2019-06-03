@@ -80,6 +80,7 @@ LinkedList.prototype.indexOf = function(value) {
 // ll.addToHead(300);
 
 // console.log(util.inspect(ll, false, null, true /* enable colors */)); // 300 200 100 Head: 300 Tail: 100
+
 // var myLL = new LinkedList();
 
 // myLL.addToTail(10);
