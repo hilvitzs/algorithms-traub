@@ -95,6 +95,6 @@ bst.insert(10);
 //   console.log(node.value);
 // }
 
-console.log(bst.getMinVal()); // 10
-console.log(bst.getMaxVal()); // 105
+// console.log(bst.getMinVal()); // 10
+// console.log(bst.getMaxVal()); // 105
 

@@ -87,4 +87,4 @@ myHT.insert('Samantha', 'sammy@twitter.com');
 // console.log(myHT.get('Megan')); // megansmith@gmail.com
 // console.log(myHT.get('Dane')); // dane1010@gmail.com
 
-console.log(util.inspect(myHT.retrieveAll(), false, null, true)); // Sam, Megan, Dean, Dane, Joe
+// console.log(util.inspect(myHT.retrieveAll(), false, null, true)); // Sam, Megan, Dean, Dane, Joe
