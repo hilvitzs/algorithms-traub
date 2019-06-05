@@ -2,57 +2,62 @@ const util = require('util');
 
 function BST(value) {
   this.value = value;
-  this.left = null;
   this.right = null;
+  this.left = null;
 }
 
 BST.prototype.insert = function(value) {
   if (value <= this.value) {
-    !this.left ? this.left = new BST(value) : this.left.insert(value);
-  } else {
-    !this.right ? this.right = new BST(value) : this.right.insert(value);
+    if (!this.left) this.left = new BST(value);
+    else this.left.insert(value);
+  } else if (value > this.value) {
+    if (!this.right) this.right = new BST(value);
+    else this.right.insert(value);
   }
 };
 
 BST.prototype.contains = function(value) {
-  if (value === this.value) return true;
-  else if (value < this.value) {
+  if (this.value === value) return true;
+  if (value < this.value) {
     if (!this.left) return false;
-    return this.left.contains(value);
+    else return this.left.contains(value);
   } else if (value > this.value) {
     if (!this.right) return false;
-    return this.right.contains(value);
+    else return this.right.contains(value);
   }
 };
 
-BST.prototype.depthFirstTraversal = function(fn, order) {
-  if (order === 'pre-order') fn(this.value);
-  if (this.left) this.left.depthFirstTraversal(fn, order);
-  if (order === 'in-order') fn(this.value);
-  if (this.right) this.right.depthFirstTraversal(fn, order);
-  if (order === 'post-order') fn(this.value);
+BST.prototype.depthFirstTraversal = function(iteratorFunc, order) {
+  if (order === 'pre-order') iteratorFunc(this.value);
+  if (this.left) this.left.depthFirstTraversal(iteratorFunc, order);
+  if (order === 'in-order') iteratorFunc(this.value);
+  if (this.right) this.right.depthFirstTraversal(iteratorFunc, order);
+  if (order === 'post-order') iteratorFunc(this.value);
 };
 
-BST.prototype.breadthFirstTraversal = function(fn) {
+BST.prototype.breadthFirstTraversal = function(iteratorFunc) {
   let queue = [this];
-
   while (queue.length) {
     let treeNode = queue.shift();
-    fn(treeNode);
+    iteratorFunc(treeNode);
     if (treeNode.left) queue.push(treeNode.left);
     if (treeNode.right) queue.push(treeNode.right);
   }
 };
 
+function log(value) {
+  console.log(value);
+}
+
 BST.prototype.getMinVal = function() {
   if (this.left) return this.left.getMinVal();
-  return this.value;
+  else return this.value;
 };
 
 BST.prototype.getMaxVal = function() {
   if (this.right) return this.right.getMaxVal();
-  return this.value;
-}
+  else return this.value;
+};
 
 let bst = new BST(50);
 
@@ -93,4 +98,3 @@ bst.insert(10);
 
 // console.log(bst.getMinVal()); // 10
 // console.log(bst.getMaxVal()); // 105
-

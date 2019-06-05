@@ -16,18 +16,17 @@ HashTable.prototype.hash = function(key) {
   for (let i = 0; i < key.length; i++) {
     total += key.charCodeAt(i);
   }
-
-  return total % this.numBuckets;
-}
+  let bucket = total % this.numBuckets;
+  return bucket;
+};
 
 HashTable.prototype.insert = function(key, value) {
   let index = this.hash(key);
-  // console.log(index);
-  if (!this.buckets[index]) this.buckets[index] = new HashNode(key, value);
-  else if (this.buckets[index].key === key) {
+  if (!this.buckets[index]) {
+    this.buckets[index] = new HashNode(key, value);
+  } else if (this.buckets[index].key === key) {
     this.buckets[index].value = value;
-  }
-  else {
+  } else {
     let currentNode = this.buckets[index];
     while (currentNode.next) {
       if (currentNode.next.key === key) {
@@ -37,8 +36,8 @@ HashTable.prototype.insert = function(key, value) {
       currentNode = currentNode.next;
     }
     currentNode.next = new HashNode(key, value);
-  }  
-}
+  }
+};
 
 HashTable.prototype.get = function(key) {
   let index = this.hash(key);
@@ -61,10 +60,9 @@ HashTable.prototype.retrieveAll = function() {
       allNodes.push(currentNode);
       currentNode = currentNode.next;
     }
-  } 
-
+  }
   return allNodes;
-}
+};
 
 let myHT = new HashTable(30);
 
