@@ -12,7 +12,7 @@ function Node(value, next, prev) {
 }
 
 LinkedList.prototype.addToHead = function(value) {
-  var newNode = new Node(value, this.head, null);
+  let newNode = new Node(value, this.head, this.tail);
 
   if (this.head) this.head.prev = newNode;
   else this.tail = newNode;
@@ -20,7 +20,7 @@ LinkedList.prototype.addToHead = function(value) {
 }
 
 LinkedList.prototype.addToTail = function(value) {
-  var newNode = new Node(value, null, this.tail);
+  let newNode = new Node(value, null, this.tail);
 
   if (this.tail) this.tail.next = newNode;
   else this.head = newNode;
@@ -30,7 +30,7 @@ LinkedList.prototype.addToTail = function(value) {
 LinkedList.prototype.removeHead = function() {
   if (!this.head) return null;
 
-  var val = this.head.value;
+  let val = this.head.value;
   this.head = this.head.next;
   if (this.head) this.head.prev = null;
   else this.tail = null;
@@ -39,8 +39,7 @@ LinkedList.prototype.removeHead = function() {
 
 LinkedList.prototype.removeTail = function() {
   if (!this.tail) return null;
-
-  var val = this.tail.value;
+  let val = this.tail.value;
   this.tail = this.tail.prev;
   if (this.tail) this.tail.next = null;
   else this.head = null;
@@ -48,8 +47,7 @@ LinkedList.prototype.removeTail = function() {
 }
 
 LinkedList.prototype.search = function(value) {
-  var currentNode = this.head;
-
+  let currentNode = this.head;
   while (currentNode) {
     if (currentNode.value === value) return currentNode.value;
     currentNode = currentNode.next;
@@ -58,19 +56,17 @@ LinkedList.prototype.search = function(value) {
 }
 
 LinkedList.prototype.indexOf = function(value) {
-  var counter = 0;
-  var indexes = [];
-  var currentNode = this.head;
+  let counter = 0;
+  let allFound = [];
+  let currentNode = this.head;
 
   while (currentNode) {
-    if (currentNode.value === value) {
-      indexes.push(counter);
-    }
+    if (currentNode.value === value) allFound.push(counter);
     counter++;
     currentNode = currentNode.next;
   }
 
-  return indexes;
+  return allFound;
 }
 
 // var ll = new LinkedList();
@@ -87,9 +83,13 @@ LinkedList.prototype.indexOf = function(value) {
 // myLL.addToTail(20);
 // myLL.addToTail(30);
 
+// console.log(util.inspect(myLL.head, false, null, true /* enable colors */)) // 10
+// console.log(util.inspect(myLL.tail, false, null, true /* enable colors */)) // 30
+
 // myLL.addToHead(100);
 
 // console.log(util.inspect(myLL.head, false, null, true /* enable colors */)) // 100
+// console.log(util.inspect(myLL.tail, false, null, true)); // 30
 
 // myLL.removeHead();
 
