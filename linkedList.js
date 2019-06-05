@@ -12,7 +12,7 @@ function Node(value, next, prev) {
 }
 
 LinkedList.prototype.addToHead = function(value) {
-  let newNode = new Node(value, this.head, this.tail);
+  let newNode = new Node(value, this.head, null);
 
   if (this.head) this.head.prev = newNode;
   else this.tail = newNode;
